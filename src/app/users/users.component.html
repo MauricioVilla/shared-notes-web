@@ -1,0 +1,51 @@
+<div class="container">
+  <app-header [setWhiteLetters]="whiteLetters"></app-header>
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm">
+      <h2 class="display-5">Crear cuenta</h2>
+      <form [formGroup]="formCreateAccount" (submit)="registerUser()">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputUsername">Nombre de usuario</label>
+            <input type="email" formControlName="username" class="form-control" id="inputUsername" placeholder="Ej: mauriciovilla">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputEmail">Email</label>
+            <input type="email" formControlName="email" class="form-control" id="inputEmail" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword">Contraseña</label>
+          <input type="password" formControlName="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+        </div>
+        <div class="form-group">
+          <label for="inputNames">Nombres</label>
+          <input type="text" formControlName="first_name" class="form-control" id="inputNames" placeholder="Nombres">
+        </div>
+        <div class="form-group">
+          <label for="inputLastNames">Apellidos</label>
+          <input type="text" formControlName="last_name" class="form-control" id="inputLastNames" placeholder="Apellidos">
+        </div>
+        <div class="form-group">
+          <label for="inputIndentifiedNum">Numero de identificación</label>
+          <input type="text" formControlName="num_document" class="form-control" id="inputIndentifiedNum" placeholder="Numero de identificación">
+        </div>
+        <button type="submit" class="btn btn-primary">Registrarse</button>
+        ¿Devolviendo el cliente? <a routerLink="/login">Iniciar sesión</a>
+      </form>
+      <swal #registerSuccess
+            title="Registro exitoso"
+            text="Se ha registrado exitosamente!, ahora puede iniciar sesión"
+            type="success">
+      </swal>
+      <swal #registerFail
+            title="Registro fallido"
+            text="No se ha podido registrar tus datos, intenta más tarde"
+            type="error">
+      </swal>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>
+

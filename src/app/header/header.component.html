@@ -1,0 +1,26 @@
+<header class="header" id="header-main">
+  <nav class="navbar navbar-light">
+    <a class="navbar-brand white-letters" routerLink="/" *ngIf="whiteLetters == true">
+      <img src="favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="">
+      Shared Notes
+    </a>
+    <a class="navbar-brand" routerLink="/" *ngIf="whiteLetters != true">
+      <img src="favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="">
+      Shared Notes
+    </a>
+    <ul class="nav justify-content-end">
+      <li class="nav-item" *ngIf="!authenticated">
+        <a class="nav-link white-letters" routerLink="/login"*ngIf="whiteLetters == true">Iniciar sesión</a>
+        <a class="nav-link" routerLink="/login" *ngIf="whiteLetters != true">Iniciar sesión</a>
+      </li>
+      <li class="nav-item" *ngIf="authenticated">
+        <a class="nav-link white-letters" (click)="logOut()" *ngIf="whiteLetters == true">Cerrar sesión</a>
+        <a class="nav-link" (click)="logOut()" *ngIf="whiteLetters != true">Cerrar sesión</a>
+      </li>
+      <li class="nav-item" *ngIf="!authenticated">
+        <a class="nav-link white-letters" routerLink="/create_account" *ngIf="whiteLetters == true">Crear una cuenta</a>
+        <a class="nav-link" routerLink="/create_account" *ngIf="whiteLetters != true">Crear una cuenta</a>
+      </li>
+    </ul>
+  </nav>
+</header>

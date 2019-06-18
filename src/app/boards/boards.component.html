@@ -1,0 +1,91 @@
+<div class="container">
+  <app-header [setWhiteLetters]="false" [setAuthenticated]="authenticated"></app-header>
+  <div class="row">
+    <div class="col-6">
+      <nav class="navbar">
+        <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Buscar por" aria-label="search">
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+      </nav>
+    </div>
+  </div>
+  <div *ngFor="let board of boards, let i=index;">
+    <div class="card border-primary mb-3" style="max-width: 18rem;">
+      <div class="card-header">
+        <h5 class="card-title">
+          {{board.title|uppercase}}
+        </h5>
+      </div>
+      <div class="card-body text-dark">
+        <form [formGroup]="formIdea" *ngIf="showFormIdea">
+          <div class="form-group">
+            <label for="inputDescription" class="col-form-label">Descripcion</label>
+            <textarea class="form-control" id="inputDescription" formControlName="description"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-secondary btn-sm" (click)="showFormIdea = false">Cancelar</button>
+            <button type="button" class="btn btn-primary btn-sm" (click)="newIdea(board.id)" data-dismiss="modal">Crear</button>
+          </div>
+        </form>
+        <p class="card-text">
+          <ng-container *ngFor="let idea of boards[1]">
+            <span class="tag" [ngClass]="{'': idea.approved == 'Yes', 'is-danger': idea.approved == 'No'}"
+                  *ngIf="board.id === idea.board && idea.approved == 'Yes'">{{idea.description}}
+              <button (click)="deleteIdea(idea.id, board.creado_por)" class="button is-small is-text">eliminar</button>&nbsp;&nbsp;
+              <button (click)="editIdeaFormModal(idea,board)" class="button is-small is-text">editar</button>
+            </span>
+          </ng-container>
+        </p>
+        <div class="collapsible-header text-right" (click)="addFormIdea(board.id)" >
+          <button class="btn btn-outline-primary my-2 my-sm-0 btn-sm"><i class="fas fa-plus" ></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="collapsible-header text-right" data-toggle="modal" data-target="#newBoardModal">
+    <button class="btn btn-outline-primary my-2 my-sm-0"><i class="fas fa-plus" ></i> Nuevo Tablero</button>
+  </div>
+  <!-- Modal Board -->
+  <div class="modal fade" id="newBoardModal" tabindex="-1" role="dialog" aria-labelledby="newBoardModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newBoardModalLabel">Crear Tablero</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="formBoard">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputTitle">Titulo</label>
+                <input type="text" formControlName="title" class="form-control" id="inputTitle">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputType">Tipo</label>
+                <select formControlName="type" class="form-control" id="inputType">
+                  <option value="Public">Publico</option>
+                  <option value="Private">Privado</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputDescription" class="col-form-label">Descripcion</label>
+              <textarea class="form-control" id="inputDescription" formControlName="description"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="newBoard()" data-dismiss="modal">Crear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--<app-footer></app-footer>-->

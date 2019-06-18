@@ -1,0 +1,124 @@
+.navbar-wrapper .navbar-brand img.light-logo {
+  max-height: none;
+  height: 48px;
+}
+
+.navbar-wrapper.navbar-faded .navbar-brand img.dark-logo {
+  max-height: none;
+  height: 48px;
+}
+
+.navbar-afs-blue {
+  background-color: #173882;
+
+}
+
+
+.afs-top-logo {
+  height: 200px;
+  width: 100px;
+}
+
+.section-one {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+
+.section-two {
+  padding-top: 75px;
+  padding-bottom: 115px;
+  background-color: #EFF4F7;
+}
+
+.section-two .section-title-wrapper {
+  position: relative;
+  padding: 30px 20px 30px 30px;
+}
+
+.section-tree {
+  padding-top: 95px;
+  padding-bottom: 125px;
+  background-color: #fbfbfb;
+}
+
+.section-four{
+  padding-top: 125px;
+  padding-bottom: 125px;
+  background-image: url("/assets/images/bg/pay_online2_opt.jpg");
+  background-size: cover;
+}
+
+.section-four .section-title-wrapper {
+  position: relative;
+  padding: 0 20px 20px 20px;
+}
+
+.section-five {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  background-color: #fbfbfb;
+}
+
+.section-five .section-title-wrapper {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.section-six {
+  padding-top: 115px;
+  padding-bottom: 135px;
+  background-color: #EFF4F7;
+}
+
+.section-six .section-title-wrapper {
+  position: relative;
+  padding: 0 20px 20px 20px;
+}
+
+.section-payments {
+  background-attachment: fixed;
+  background-position: 50% 0;
+  .payments-pse-image {
+    text-align: center;
+  }
+  .payments-pse-title {
+    margin: 2rem 0 3rem;
+  }
+  .button {
+    display: flex;
+    white-space: normal;
+    height: 4em;
+  }
+}
+
+.section-title-wrapper .subtitle {
+  font-family: 'Nexa Light', sans-serif;
+  font-size: 1.2rem;
+  line-height: 30px;
+  font-weight: 400;
+  padding: 20px;
+  color: #A9ABAC;
+}
+
+.Wallop {
+  .Wallop-caption-wrapper {
+    .container {
+      .caption-inner {
+        margin-top: 5rem;
+        h1 {
+          font-size: 2rem;
+          line-height: 2rem;
+        }
+      }
+    }
+  }
+}
+
+.parrafo-justificado {
+  text-align: justify;
+}
+
+.navbar.is-white .navbar-start > .navbar-item {
+  color: #FFFFFF;
+}

@@ -1,0 +1,26 @@
+<div class="container">
+  <app-header [setWhiteLetters]="whiteLetters"></app-header>
+  <div class="row">
+    <div class="col-sm"></div>
+    <div class="col-sm">
+      <h2 class="display-5">Inicio de sesión</h2>
+      <form [formGroup]="loginForm" (submit)="logIn()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Usuario</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" formControlName="username" placeholder="Eje: mauriciovilla">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Contraseña</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" placeholder="Contraseña">
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        </div>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+        ¿Nuevo cliente?  <a routerLink="/create_account">Crear cuenta</a>
+      </form>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>

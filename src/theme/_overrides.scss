@@ -1,0 +1,92 @@
+/*
+ * Global application theme.
+ * Framework overrides and customization goes here.
+ */
+
+[hidden] {
+  display: none !important;
+}
+.label.is-required:after {
+  content: " *";
+  color: $red;
+}
+
+wizard-step {
+  .message.is-danger {
+    margin: -1.5rem -1.5rem 1.5rem;
+    .message-body {
+      padding: 1em 1.5em;
+      border-radius: 0;
+      border-left: 0;
+    }
+  }
+  .column{
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  .control {
+    margin-bottom: 24px; // 28
+    .control-errors {
+      position: absolute;
+      left: 0;
+      bottom: -22px;
+    }
+    &.control-checkbox {
+      margin: 0;
+      padding-top: 24px;
+      @include mobile() {
+        padding: 0;
+      }
+    }
+  }
+}
+
+app-loader {
+  .is-fullscreen {
+    background-color: rgba(255, 255, 255, 0.65);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+  }
+  .loader-logo {
+    width: 120px;
+    height: 53px;
+    margin-bottom: 2.75em;
+  }
+  .loader {
+    height: 2.75em;
+    width: 2.75em;
+    margin: 0 auto;
+    border-left-color: $blue;
+    border-bottom-color: $blue;
+
+  }
+}
+
+.message.is-link .message-header {
+  background-color: $afs-blue;
+}
+
+.afs-filedrop {
+  padding: 40px 0;
+  background: #fff;
+  border: 2px dashed #c2cdda;
+  border-radius: 3px;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.filedrops{
+margin: 2px;
+height: 120px;
+width: 350px;
+border: 2px dashed #c2cdda;
+border-radius: 3px;
+text-align: center; }

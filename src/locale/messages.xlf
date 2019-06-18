@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="de" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="df8578aa3b47454ea3a314b09edc54be310df537" datatype="html">
+        <source>Inicio</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">enlace al landing page</note>
+        <note priority="1" from="meaning">inicio</note>
+      </trans-unit>
+      <trans-unit id="bfb9bd5d8c047022fda49cf26b5da7d86034ad11" datatype="html">
+        <source>Nuevos Clientes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description"> enlace nuevos clientes</note>
+        <note priority="1" from="meaning">nuevos_clientes_enlace</note>
+      </trans-unit>
+      <trans-unit id="ba0e254d7c87fe4571c55a1844acfec1335a3305" datatype="html">
+        <source>Consulta de prospectos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">enlace consulta prospecto</note>
+        <note priority="1" from="meaning">consulta_prospecto</note>
+      </trans-unit>
+      <trans-unit id="07ba5b6f024a6d19c6a87c7a29959db243804bd2" datatype="html">
+        <source>Añadir nuevo prospecto</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description"> enlace nuevo prospecto formulario</note>
+        <note priority="1" from="meaning">nuevo_prospecto</note>
+      </trans-unit>
+      <trans-unit id="b566dbdc16888e0a908a5efdc2a06f9548bd8594" datatype="html">
+        <source>Consultar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+        <note priority="1" from="description"> boton consultar</note>
+        <note priority="1" from="meaning">consultar</note>
+      </trans-unit>
+      <trans-unit id="7b08d83e9e637cef92aeaf42781e11bff5596860" datatype="html">
+        <source>
+                  Editar prospecto
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+        <note priority="1" from="description"> enlace editar prospecto</note>
+        <note priority="1" from="meaning">editar_prospecto </note>
+      </trans-unit>
+      <trans-unit id="66ac7fbd8426ea0abfb8e6c02c697dc2048de715" datatype="html">
+        <source>
+                  Enviar correo electrónico
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">115</context>
+        </context-group>
+        <note priority="1" from="description"> enlace enviar correo electronico</note>
+        <note priority="1" from="meaning">enviar_correo</note>
+      </trans-unit>
+      <trans-unit id="967f67a153656175d1f0ebaf432272fa94302ed5" datatype="html">
+        <source>
+                  Descartar prospecto
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+        <note priority="1" from="description"> enlace descartar prospecto</note>
+        <note priority="1" from="meaning">descartar_prospecto </note>
+      </trans-unit>
+      <trans-unit id="fd1dfe7a5e9318e4f17c82373feda2757dbd1c1d" datatype="html">
+        <source>Creado en:  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">134</context>
+        </context-group>
+        <note priority="1" from="description"> label creado en</note>
+        <note priority="1" from="meaning">creado_en</note>
+      </trans-unit>
+      <trans-unit id="b8f42b1f2011b10d4125b563c82a64dfd5813eae" datatype="html">
+        <source>Envío exitoso</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">170</context>
+        </context-group>
+        <note priority="1" from="description"> titulo modal</note>
+        <note priority="1" from="meaning">envio_exitoso </note>
+      </trans-unit>
+      <trans-unit id="eeff9675616423a5e82a74152792961543f786d9" datatype="html">
+        <source>
+          Se ha enviado un email con un enlace al prospecto seleccionado para que este puede terminar con el proceso de nuevo cliente.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">174</context>
+        </context-group>
+        <note priority="1" from="description"> mensaje de envio de email en ventana modal</note>
+        <note priority="1" from="meaning">email_enviado </note>
+      </trans-unit>
+      <trans-unit id="4e6ed37937eee4768dcc265c63ede32ab387defe" datatype="html">
+        <source>Cerrar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">179</context>
+        </context-group>
+        <note priority="1" from="description"> boton cerrar modal</note>
+        <note priority="1" from="meaning">cerrar </note>
+      </trans-unit>
+      <trans-unit id="1eb09b235523fac69faaad4def7c967d6dd22b08" datatype="html">
+        <source>
+          Carga masiva de prospectos</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">189</context>
+        </context-group>
+        <note priority="1" from="description"> titulo de ventana modal</note>
+        <note priority="1" from="meaning">carga_masiva_titulo_modal </note>
+      </trans-unit>
+      <trans-unit id="f6c69e395a75d7bfc569c0dc0a49a73e4e121ea3" datatype="html">
+        <source>
+          Por favor cargue la plantilla &quot;xls&quot; predeterminada con los prospectos a importar en el sitio web.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">194</context>
+        </context-group>
+        <note priority="1" from="description"> mensaje para modal de carga masivo de prospectos</note>
+        <note priority="1" from="meaning">mensaje_modal_carga_masiva </note>
+      </trans-unit>
+      <trans-unit id="a5ef2931b237760a7a89ba716520eabe89e27402" datatype="html">
+        <source> Cargar prospectos </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">209</context>
+        </context-group>
+        <note priority="1" from="description"> boton de carga masiva</note>
+        <note priority="1" from="meaning">cargar_prospectos </note>
+      </trans-unit>
+      <trans-unit id="529a24901197254bba400bc766e19eb108e68dfd" datatype="html">
+        <source>
+          Acceso Denegado.
+        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">223</context>
+        </context-group>
+        <note priority="1" from="description"> mensaje de acceso denegado</note>
+        <note priority="1" from="meaning">acceso_denegado </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

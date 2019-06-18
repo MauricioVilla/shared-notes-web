@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="df8578aa3b47454ea3a314b09edc54be310df537" datatype="html">
+        <source>Inicio</source>
+        <target>Home</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">enlace al landing page</note>
+        <note priority="1" from="meaning">inicio</note>
+      </trans-unit>
+      <trans-unit id="bfb9bd5d8c047022fda49cf26b5da7d86034ad11" datatype="html">
+        <source>Nuevos Clientes</source>
+        <target>New Customers</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description"> enlace nuevos clientes</note>
+        <note priority="1" from="meaning">nuevos_clientes_enlace</note>
+      </trans-unit>
+      <trans-unit id="ba0e254d7c87fe4571c55a1844acfec1335a3305" datatype="html">
+        <source>Consulta de prospectos</source>
+        <target>Consultation of prospects</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">enlace consulta prospecto</note>
+        <note priority="1" from="meaning">consulta_prospecto</note>
+      </trans-unit>
+      <trans-unit id="07ba5b6f024a6d19c6a87c7a29959db243804bd2" datatype="html">
+        <source>Añadir nuevo prospecto</source>
+        <target>Add new prospect</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/nuevos-clientes/consulta-prospecto/consulta-prospecto.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description"> enlace nuevo prospecto formulario</note>
+        <note priority="1" from="meaning">nuevo_prospecto</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
