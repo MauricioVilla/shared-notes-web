@@ -1,51 +1,58 @@
 <div class="container">
   <app-header [setWhiteLetters]="false" [setAuthenticated]="authenticated"></app-header>
-  <div class="row">
-    <div class="col-6">
-      <nav class="navbar">
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Buscar por" aria-label="search">
-          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
-      </nav>
+  <nav class="navbar">
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar por" aria-label="search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+    <div class="collapsible-header text-right" data-toggle="modal" data-target="#newBoardModal">
+      <button class="btn btn-outline-primary my-2 my-sm-0"><i class="fas fa-plus" ></i> Nuevo Tablero</button>
     </div>
-  </div>
-  <div *ngFor="let board of boards, let i=index;">
-    <div class="card border-primary mb-3" style="max-width: 18rem;">
-      <div class="card-header">
-        <h5 class="card-title">
-          {{board.title|uppercase}}
-        </h5>
+  </nav>
+  <div class="row card-deck">
+    <div class="col-4" *ngFor="let board of boards, let b=index;">
+      <div class="card border-primary mb-4" style="max-width: 18rem;">
+        <div class="card-body text-dark">
+          <h6 class="text-left">
+          <span class="badge badge-pill badge-primary" [ngClass]="{'badge-success': board.type == 'Public', 'badge-warning': board.type == 'Private'}">
+            {{ board.type }}
+          </span>
+          </h6>
+          <h5 class="card-title">
+            {{board.title|uppercase}}
+          </h5>
+          <p *ngFor="let ideas of board.ideas | slice:0:5; "><span class="badge badge-primary">{{ ideas }}</span></p>
+          <div class="collapsible-header text-right"  >
+            <a class="card-link" data-toggle="modal" data-target="#newIdeaModal"
+               *ngIf="userId === board.created_by" routerLink="">Añadir una idea</a>
+          </div>
+        </div>
       </div>
-      <div class="card-body text-dark">
-        <form [formGroup]="formIdea" *ngIf="showFormIdea">
-          <div class="form-group">
-            <label for="inputDescription" class="col-form-label">Descripcion</label>
-            <textarea class="form-control" id="inputDescription" formControlName="description"></textarea>
+      <div class="modal fade" id="newIdeaModal" tabindex="-1" role="dialog" aria-labelledby="newIdeaModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="newIdeaModalLabel">Añadir Idea</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="formIdea">
+                <div class="form-group">
+                  <label for="inputDescription" class="col-form-label">Descripcion</label>
+                  <textarea class="form-control" id="inputDescription" formControlName="description"></textarea>
+                </div>
+                <div class="form-group">
+                  <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary btn-sm" (click)="newIdea(board.id)" data-dismiss="modal">Añadir</button>
+                </div>
+              </form>
+            </div>
           </div>
-          <div class="form-group">
-            <button type="button" class="btn btn-secondary btn-sm" (click)="showFormIdea = false">Cancelar</button>
-            <button type="button" class="btn btn-primary btn-sm" (click)="newIdea(board.id)" data-dismiss="modal">Crear</button>
-          </div>
-        </form>
-        <p class="card-text">
-          <ng-container *ngFor="let idea of boards[1]">
-            <span class="tag" [ngClass]="{'': idea.approved == 'Yes', 'is-danger': idea.approved == 'No'}"
-                  *ngIf="board.id === idea.board && idea.approved == 'Yes'">{{idea.description}}
-              <button (click)="deleteIdea(idea.id, board.creado_por)" class="button is-small is-text">eliminar</button>&nbsp;&nbsp;
-              <button (click)="editIdeaFormModal(idea,board)" class="button is-small is-text">editar</button>
-            </span>
-          </ng-container>
-        </p>
-        <div class="collapsible-header text-right" (click)="addFormIdea(board.id)" >
-          <button class="btn btn-outline-primary my-2 my-sm-0 btn-sm"><i class="fas fa-plus" ></i></button>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="collapsible-header text-right" data-toggle="modal" data-target="#newBoardModal">
-    <button class="btn btn-outline-primary my-2 my-sm-0"><i class="fas fa-plus" ></i> Nuevo Tablero</button>
   </div>
   <!-- Modal Board -->
   <div class="modal fade" id="newBoardModal" tabindex="-1" role="dialog" aria-labelledby="newBoardModalLabel" aria-hidden="true">
@@ -85,6 +92,12 @@
       </div>
     </div>
   </div>
+
+  <swal #createIdeaFail
+        title="Permiso denegado"
+        text="No tienes permisos para escribir en este tablero"
+        type="error">
+  </swal>
 </div>
 
 
