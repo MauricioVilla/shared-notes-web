@@ -94,13 +94,14 @@ export class BoardsComponent implements OnInit {
   Creation of boards
    */
   newBoard() {
-    const boarModel: BoardModel = {
+    const boardModel: BoardModel = {
       'title': this.title.value,
       'description': this.description.value,
       'type': this.type.value,
       'created_by': this.userId,
     };
-    this.services.createBoard(boarModel)
+    console.log(boardModel);
+    this.services.createBoard(boardModel)
       .subscribe(
         data => {
           console.log(data);
