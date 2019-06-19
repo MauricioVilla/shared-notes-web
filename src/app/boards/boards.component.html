@@ -22,7 +22,12 @@
           <h5 class="card-title">
             {{board.title|uppercase}}
           </h5>
-          <p *ngFor="let ideas of board.ideas | slice:0:5; "><span class="badge badge-primary">{{ ideas }}</span></p>
+          <p *ngFor="let idea of board.ideas | slice:0:5; ">
+            <span class="badge badge-primary">{{ idea | slice:0:15 }} ...</span> &nbsp;
+            <span class="badge badge-primary"><a (click)="showIdea(board)"><i class="fas fa-eye"></i></a></span> &nbsp;
+            <span class="badge badge-primary"><a (click)="editIdeaFormModal(board)"><i class="fas fa-pencil-alt"></i></a></span> &nbsp;
+            <span class="badge badge-primary"><a (click)="deleteIdea(idea)"><i class="fas fa-trash-alt"></i></a></span>
+          </p>
           <div class="collapsible-header text-right"  >
             <a class="card-link" (click)="checkNewIdea(board.id, board.type, board.created_by)" routerLink="">Añadir una idea</a>
           </div>
@@ -93,8 +98,22 @@
       </div>
     </div>
   </div>
-
-
+  <div class="modal fade" id="showIdea" tabindex="-1" role="dialog" aria-labelledby="showIdeaLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="showIdeaLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <swal #createIdeaFail
         title="Permiso denegado"
         text="No tienes permisos para escribir en este tablero"
@@ -102,4 +121,5 @@
   </swal>
 </div>
 <div id="idModalIdea" data-toggle="modal" data-target="#newIdeaModal"><a>.</a></div>
+<div id="linkShowIdea" data-toggle="modal" data-target="#showIdea"><a>.</a></div>
 <!--<app-footer></app-footer>-->

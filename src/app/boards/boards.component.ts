@@ -119,6 +119,19 @@ export class BoardsComponent implements OnInit {
       );
   }
 
+  deleteBoard(id) {
+    this.services.deleteIdea(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.getBoards();
+        },
+        error => {
+          console.log(`error: ${error.message}`);
+        }
+      );
+  }
+
   newIdea(boardId) {
     const ideaModel: IdeaModel = {
       'board': boardId,
@@ -157,46 +170,22 @@ export class BoardsComponent implements OnInit {
     }
   }
 
-  editIdeaFormModal(idea, tablero) {
-    if (tablero.creado_por === this.userId) {
+  showIdea(board) {
+    $('#linkShowIdea').trigger('click');
+  }
+
+  editIdeaFormModal(idea, board) {
+    if (board.created_by === this.userId) {
       this.description_idea.setValue(idea.descripcion);
     } else {
     }
   }
 
-  cancelar() {
-    this.description_idea.setValue('');
+  deleteIdea(idIdea) {
+    console.log(idIdea);
   }
 
-  deleteIdea(id, tablero_creado_por) {
-  }
-
-  approveIdea(idea, tablero) {
-  }
-
-  eliminarTablero(id) {
-    this.services.deleteIdea(id)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.getBoards();
-        },
-        error => {
-          console.log(`error: ${error.message}`);
-        }
-      );
-  }
-
-  onKeyUpBuscador(value) {
-    this.services.getBoard(value)
-      .subscribe(
-        data => {
-          console.log(data);
-          this.boards = data;
-        },
-        error => {
-        }
-      );
+  approveIdea(idea, board) {
   }
 
 }
