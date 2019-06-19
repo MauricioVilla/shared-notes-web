@@ -1,13 +1,13 @@
 export class BoardModel {
-  title: String;
-  description: String;
-  type: String;
-  created_by: String;
+  title: string;
+  description: string;
+  type: string;
+  created_by: string;
 }
 
 export class IdeaModel {
-  board: String;
-  description: String;
-  created_by: String;
-  approved: boolean;
+  board: string;
+  description: string;
+  created_by: string;
+  approved: string;
 }
