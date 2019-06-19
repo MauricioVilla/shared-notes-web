@@ -15,14 +15,15 @@
       <div class="card border-primary mb-4" style="max-width: 18rem;">
         <div class="card-body text-dark">
           <h6 class="text-left">
-          <span class="badge badge-pill badge-primary" [ngClass]="{'badge-success': board.type == 'Public', 'badge-warning': board.type == 'Private'}">
-            {{ board.type }}
-          </span>
+            <span class="badge badge-pill badge-primary" [ngClass]="{'badge-success': board.type == 'Public', 'badge-warning': board.type == 'Private'}">
+              {{ board.type }}
+            </span>
+
           </h6>
           <h5 class="card-title">
             {{board.title|uppercase}}
           </h5>
-          <p *ngFor="let idea of board.ideas | slice:0:5; let i=index;">
+          <p *ngFor="let idea of board.ideas | slice:0:3; let i=index;">
             <span class="badge badge-primary">{{ idea | slice:0:15 }} ...</span> &nbsp;
             <span class="badge badge-primary"><a (click)="showIdea(idea)"><i class="fas fa-eye"></i></a></span> &nbsp;
             <span class="badge badge-primary"><a (click)="editIdeaFormModal(board)"><i class="fas fa-pencil-alt"></i></a></span> &nbsp;
@@ -58,6 +59,21 @@
           </div>
         </div>
       </div>
+      <!--<div class="modal fade" id="showBoardModal" tabindex="-1" role="dialog" aria-labelledby="showBoardModalLabel" aria-hidden="true">-->
+        <!--<div class="modal-dialog" role="document">-->
+          <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+              <!--<h5 class="modal-title" id="showBoardModalLabel">{{ board.title|uppercase }}</h5>-->
+              <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+                <!--<span aria-hidden="true">&times;</span>-->
+              <!--</button>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+              <!--<p *ngFor="let idea of board.ideas, let i=index;"> {{ idea  }}</p>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
     </div>
   </div>
   <!-- Modal Board -->

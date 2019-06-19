@@ -182,4 +182,8 @@ export class BoardsComponent implements OnInit {
   approveIdea(idea, board) {
   }
 
+  showCard() {
+    this.card
+  }
+
 }
