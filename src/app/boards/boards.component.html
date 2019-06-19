@@ -9,6 +9,7 @@
       <button class="btn btn-outline-primary my-2 my-sm-0"><i class="fas fa-plus" ></i> Nuevo Tablero</button>
     </div>
   </nav>
+  <hr>
   <div class="row card-deck">
     <div class="col-4" *ngFor="let board of boards, let b=index;">
       <div class="card border-primary mb-4" style="max-width: 18rem;">
@@ -23,11 +24,11 @@
           </h5>
           <p *ngFor="let ideas of board.ideas | slice:0:5; "><span class="badge badge-primary">{{ ideas }}</span></p>
           <div class="collapsible-header text-right"  >
-            <a class="card-link" data-toggle="modal" data-target="#newIdeaModal"
-               *ngIf="userId === board.created_by" routerLink="">Añadir una idea</a>
+            <a class="card-link" (click)="checkNewIdea(board.id, board.type, board.created_by)" routerLink="">Añadir una idea</a>
           </div>
         </div>
       </div>
+      <!-- Modal Idea -->
       <div class="modal fade" id="newIdeaModal" tabindex="-1" role="dialog" aria-labelledby="newIdeaModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -93,12 +94,12 @@
     </div>
   </div>
 
+
   <swal #createIdeaFail
         title="Permiso denegado"
         text="No tienes permisos para escribir en este tablero"
         type="error">
   </swal>
 </div>
-
-
+<div id="idModalIdea" data-toggle="modal" data-target="#newIdeaModal"><a>.</a></div>
 <!--<app-footer></app-footer>-->
