@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '@app/core';
 import { finalize } from 'rxjs/operators';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-tableros',
@@ -21,8 +22,9 @@ export class BoardsComponent implements OnInit {
   username: any;
   boardId: string;
   approved: string;
-  showFormIdea: boolean;
   authenticated: boolean;
+
+  modal: any;
 
   formBoard: FormGroup;
   formIdea: FormGroup;
@@ -137,18 +139,17 @@ export class BoardsComponent implements OnInit {
   }
 
   checkNewIdea(boardId, boardType, createdBy) {
-    this.boardId = boardId;
     if (boardType === 'Public') {
       if (this.userId === createdBy) {
         this.approved = 'Yes';
       } else {
         this.approved = 'No';
       }
-      this.showFormIdea = true;
+      $('#idModalIdea').trigger('click');
     } else if (boardType === 'Private') {
       if (this.userId === createdBy) {
         this.approved = 'Yes';
-        this.showFormIdea = true;
+        $('#idModalIdea').trigger('click');
       } else {
         this.approved = 'No';
         this.createIdeaFail.show();
