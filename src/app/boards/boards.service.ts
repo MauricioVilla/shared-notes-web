@@ -31,8 +31,8 @@ export class BoardsService {
     return this.http.post(`${routes.base}/create/`, boardModel);
   }
 
-  getBoards(createdBy: string): Observable<any> {
-    const data = {created_by: createdBy};
+  getBoards(author: string): Observable<any> {
+    const data = {author: author};
     console.log(`${routes.base}/list/`);
     return this.http.get(`${routes.base}/list/`, {params: data});
   }

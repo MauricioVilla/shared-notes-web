@@ -20,11 +20,8 @@ export class BoardsComponent implements OnInit {
   boards: [{}];
   userId: any;
   username: any;
-  boardId: string;
   approved: string;
   authenticated: boolean;
-
-  modal: any;
 
   formBoard: FormGroup;
   formIdea: FormGroup;
@@ -85,10 +82,9 @@ export class BoardsComponent implements OnInit {
    Get boards from the user
    */
   getBoards() {
-    this.services.getBoards(this.userId)
+    this.services.getBoards(this.username)
       .subscribe(
         data => {
-          console.log(data);
           this.boards = data;
         },
         error => {
@@ -106,11 +102,9 @@ export class BoardsComponent implements OnInit {
       'type': this.type.value,
       'created_by': this.userId,
     };
-    console.log(boardModel);
     this.services.createBoard(boardModel)
       .subscribe(
         data => {
-          console.log(data);
           this.getBoards();
         },
         error => {
@@ -123,7 +117,6 @@ export class BoardsComponent implements OnInit {
     this.services.deleteIdea(id)
       .subscribe(
         data => {
-          console.log(data);
           this.getBoards();
         },
         error => {
@@ -153,14 +146,16 @@ export class BoardsComponent implements OnInit {
 
   checkNewIdea(boardId, boardType, createdBy) {
     if (boardType === 'Public') {
-      if (this.userId === createdBy) {
+      if (this.username === createdBy) {
         this.approved = 'Yes';
       } else {
         this.approved = 'No';
       }
       $('#idModalIdea').trigger('click');
     } else if (boardType === 'Private') {
-      if (this.userId === createdBy) {
+      console.log(this.username);
+      console.log(createdBy);
+      if (this.username === createdBy) {
         this.approved = 'Yes';
         $('#idModalIdea').trigger('click');
       } else {
@@ -170,19 +165,18 @@ export class BoardsComponent implements OnInit {
     }
   }
 
-  showIdea(board) {
+  showIdea(idea) {
     $('#linkShowIdea').trigger('click');
+    $('#showIdea').find('.text').text(idea);
   }
 
-  editIdeaFormModal(idea, board) {
-    if (board.created_by === this.userId) {
-      this.description_idea.setValue(idea.descripcion);
+  editIdeaFormModal(board) {
+    if (board.created_by.username === this.username) {
     } else {
     }
   }
 
   deleteIdea(idIdea) {
-    console.log(idIdea);
   }
 
   approveIdea(idea, board) {
