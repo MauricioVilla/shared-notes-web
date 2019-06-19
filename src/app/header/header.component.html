@@ -14,8 +14,10 @@
         <a class="nav-link" routerLink="/login" *ngIf="whiteLetters != true">Iniciar sesión</a>
       </li>
       <li class="nav-item" *ngIf="authenticated">
-        <a class="nav-link white-letters" (click)="logOut()" *ngIf="whiteLetters == true">Cerrar sesión</a>
-        <a class="nav-link" (click)="logOut()" *ngIf="whiteLetters != true">Cerrar sesión</a>
+        <a class="nav-link white-letters" (click)="logOut()"
+           *ngIf="whiteLetters == true" routerLink="">Cerrar sesión</a>
+        <a class="nav-link" (click)="logOut()"
+           *ngIf="whiteLetters != true" routerLink="">Cerrar sesión</a>
       </li>
       <li class="nav-item" *ngIf="!authenticated">
         <a class="nav-link white-letters" routerLink="/create_account" *ngIf="whiteLetters == true">Crear una cuenta</a>
