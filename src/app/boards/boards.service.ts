@@ -28,12 +28,13 @@ export class BoardsService {
    */
 
   createBoard(boardModel: BoardModel): Observable<any> {
-    return this.http.post(`${routes.base}/`, boardModel);
+    return this.http.post(`${routes.base}/create/`, boardModel);
   }
 
   getBoards(createdBy: string): Observable<any> {
     const data = {created_by: createdBy};
-    return this.http.get(`${routes.base}/`, {params: data});
+    console.log(`${routes.base}/list/`);
+    return this.http.get(`${routes.base}/list/`, {params: data});
   }
 
   getBoard(title: string): Observable<any> {
@@ -50,18 +51,18 @@ export class BoardsService {
    **********
    */
   createIdea(ideaModel: IdeaModel): Observable<any> {
-    return this.http.post(`${routes.base}/idea/`, ideaModel);
+    return this.http.post(`${routes.base}/ideas/create/`, ideaModel);
   }
 
   editIdea(id, ideasModel: IdeaModel): Observable<any> {
-    return this.http.put(`${routes.base}/idea/${id}/`, ideasModel);
-  }
-
-  approveIdea(id): Observable<any> {
-    return this.http.get(`${routes.base}/approve/${id}`);
+    return this.http.put(`${routes.base}/ideas/update/${id}/`, ideasModel);
   }
 
   deleteIdea(id): Observable<any> {
-    return this.http.delete(`${routes.base}/idea/delete/${id}/`);
+    return this.http.delete(`${routes.base}/ideas/delete/${id}/`);
+  }
+
+  approveIdea(id): Observable<any> {
+    return this.http.get(`${routes.base}/ideas/approve/${id}/`);
   }
 }
