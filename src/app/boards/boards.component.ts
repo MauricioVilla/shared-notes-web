@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import {Component, Inject, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { BoardModel, IdeaModel } from 'src/app/boards/boards.model';
@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '@app/core';
 import { finalize } from 'rxjs/operators';
+import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 
 @Component({
   selector: 'app-tableros',
@@ -18,12 +19,15 @@ export class BoardsComponent implements OnInit {
   boards: [{}];
   userId: any;
   username: any;
+  boardId: string;
+  approved: string;
   showFormIdea: boolean;
   authenticated: boolean;
 
   formBoard: FormGroup;
   formIdea: FormGroup;
   formSearch: FormGroup;
+  @ViewChild('createIdeaFail') private createIdeaFail: SwalComponent;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object,
               private authService: AuthenticationService,
@@ -113,21 +117,17 @@ export class BoardsComponent implements OnInit {
       );
   }
 
-  addFormIdea(boardId) {
-    this.showFormIdea = true;
-  }
-
   newIdea(boardId) {
     const ideaModel: IdeaModel = {
       'board': boardId,
-      'description': this.description.value,
-      'created_by': this.userId,
-      'approved': false
+      'description': this.description_idea.value,
+      'approved': this.approved,
+      'created_by': this.userId
     };
+    console.log(ideaModel);
     this.services.createIdea(ideaModel)
       .subscribe(
         data => {
-          console.log(data);
           this.getBoards();
         },
         error => {
@@ -136,24 +136,25 @@ export class BoardsComponent implements OnInit {
       );
   }
 
-  // createIdea() {
-  //   const ideasModel: IdeaModel = {
-  //     'board': this.boardId,
-  //     'description': this.description_idea.value,
-  //     'approved': this.approved,
-  //     'created_by': this.userId,
-  //   };
-  //   this.services.createIdea(ideasModel)
-  //     .subscribe(
-  //       data => {
-  //         console.log(data);
-  //         this.getBoards();
-  //       },
-  //       error => {
-  //       }
-  //     );
-  //   this.description_idea.setValue('');
-  // }
+  checkNewIdea(boardId, boardType, createdBy) {
+    this.boardId = boardId;
+    if (boardType === 'Public') {
+      if (this.userId === createdBy) {
+        this.approved = 'Yes';
+      } else {
+        this.approved = 'No';
+      }
+      this.showFormIdea = true;
+    } else if (boardType === 'Private') {
+      if (this.userId === createdBy) {
+        this.approved = 'Yes';
+        this.showFormIdea = true;
+      } else {
+        this.approved = 'No';
+        this.createIdeaFail.show();
+      }
+    }
+  }
 
   editIdeaFormModal(idea, tablero) {
     if (tablero.creado_por === this.userId) {
@@ -161,27 +162,6 @@ export class BoardsComponent implements OnInit {
     } else {
     }
   }
-
-  // Función para editar una idea
-  // editIdea() {
-  //   const ideasModel: IdeaModel = {
-  //     'board': this.info_tablero_idea_editar.id,
-  //     'description': this.description_idea.value,
-  //     'approved': this.info_idea_editar.aprobada,
-  //     'created_by': this.userId,
-  //   };
-  //   this.services.editIdea(this.info_idea_editar.id, ideasModel)
-  //     .subscribe(
-  //       data => {
-  //         console.log(data);
-  //         this.getBoards();
-  //       },
-  //       error => {
-  //         console.log(`error: ${error.message}`);
-  //       }
-  //     );
-  //   this.description_idea.setValue('');
-  // }
 
   cancelar() {
     this.description_idea.setValue('');
