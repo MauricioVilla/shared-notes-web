@@ -121,6 +121,7 @@ export class AuthenticationService implements AuthService {
    */
   public logout(): void {
     this.tokenStorage.clear();
+    localStorage.clear();
     localStorage.removeItem('saveData');
     // location.reload(true);
   }
