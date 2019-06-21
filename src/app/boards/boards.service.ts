@@ -22,9 +22,9 @@ export class BoardsService {
   }
 
   /*
-  **********
+  *********************************
    *  Boards
-   **********
+   ********************************
    */
 
   /**
@@ -41,7 +41,7 @@ export class BoardsService {
    */
   getBoardsByUser(author: string): Observable<any> {
     const data = {author: author};
-    return this.http.get(`${routes.base}/list/`, {params: data});
+    return this.http.get(`${routes.base}/list`, {params: data});
   }
 
   /**
@@ -49,7 +49,8 @@ export class BoardsService {
    * @param params
    */
   getBoardsSearcher(params: string): Observable<any> {
-    return this.http.get(`${routes.base}/${params}/`);
+    const data = {params: params};
+    return this.http.get(`${routes.base}/search`, {params: data});
   }
 
   /**
@@ -61,9 +62,9 @@ export class BoardsService {
   }
 
   /*
-  **********
+  *********************************
    *  Ideas
-   **********
+   ********************************
    */
 
   /**

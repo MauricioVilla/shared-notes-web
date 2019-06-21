@@ -2,8 +2,9 @@
   <app-header [setWhiteLetters]="false" [setAuthenticated]="authenticated"></app-header>
   <nav class="navbar">
     <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="Buscar tableros por titulo o autor" aria-label="search" #searchBoardInput>
-      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" (click)="searchBoard(searchBoardInput.value)">Buscar</button>
+      <input class="form-control" type="text" placeholder="Buscar por titulo o autor"
+             (keyup)="searchBoard(searchBoardInput.value)" aria-label="search" #searchBoardInput>
+      <!--<button class="btn btn-outline-primary my-2 my-sm-0" type="submit" (click)="searchBoard(searchBoardInput.value)">Buscar</button>-->
     </form>
     <div class="collapsible-header text-right" data-toggle="modal" data-target="#newBoardModal">
       <button class="btn btn-outline-primary my-2 my-sm-0"><i class="fas fa-plus" ></i> Nuevo Tablero</button>
@@ -17,6 +18,10 @@
           <h6 class="text-left">
             <span class="badge badge-pill badge-primary" [ngClass]="{'badge-success': board.type == 'Public', 'badge-warning': board.type == 'Private'}">
               {{ board.type }}
+            </span>
+            &nbsp;
+            <span class="badge badge-pill badge-primary">
+              {{ board.author }}
             </span>
           </h6>
           <h5 class="card-title">
@@ -58,21 +63,6 @@
           </div>
         </div>
       </div>
-      <!--<div class="modal fade" id="showBoardModal" tabindex="-1" role="dialog" aria-labelledby="showBoardModalLabel" aria-hidden="true">-->
-        <!--<div class="modal-dialog" role="document">-->
-          <!--<div class="modal-content">-->
-            <!--<div class="modal-header">-->
-              <!--<h5 class="modal-title" id="showBoardModalLabel">{{ board.title|uppercase }}</h5>-->
-              <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-                <!--<span aria-hidden="true">&times;</span>-->
-              <!--</button>-->
-            <!--</div>-->
-            <!--<div class="modal-body">-->
-              <!--<p *ngFor="let idea of board.ideas, let i=index;"> {{ idea  }}</p>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
     </div>
   </div>
   <!-- Modal Board -->
@@ -118,7 +108,7 @@
       <div class="modal-content">
         <div class="modal-body">
           <p class="text"></p>
-          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cerrar</button>
         </div>
       </div>
     </div>

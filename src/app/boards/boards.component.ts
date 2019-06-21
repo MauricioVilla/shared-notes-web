@@ -6,7 +6,7 @@ import { BoardsService } from 'src/app/boards/boards.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '@app/core';
-import { finalize } from 'rxjs/operators';
+import {finalize, isEmpty} from 'rxjs/operators';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 import * as $ from 'jquery';
 
@@ -97,18 +97,23 @@ export class BoardsComponent implements OnInit {
    * @param param
    */
   searchBoard(param: string) {
-    this.services.getBoardsSearcher(param)
-      .subscribe(
-        data => {
-          this.boards = data;
-        },
-        error => {
-        }
-      );
+    if (param === '' || param === null) {
+      this.getBoards();
+    } else {
+      this.services.getBoardsSearcher(param)
+        .subscribe(
+          data => {
+            this.boards = data;
+          },
+          error => {
+          }
+        );
+    }
   }
 
   /**
-   * Function for creation of boards
+   * Function for creation of boards,
+   * gets the values of form creation boards.
    */
   newBoard() {
     const boardModel: BoardModel = {
@@ -176,19 +181,19 @@ export class BoardsComponent implements OnInit {
   checkNewIdea(boardId, boardType, createdBy) {
     if (boardType === 'Public') {
       if (this.username === createdBy) {
-        this.approved = 'Yes';
+        this.approved = 'Si';
       } else {
-        this.approved = 'No';
+        this.approved = 'Si';
       }
       $('#idModalIdea').trigger('click');
     } else if (boardType === 'Private') {
       console.log(this.username);
       console.log(createdBy);
       if (this.username === createdBy) {
-        this.approved = 'Yes';
+        this.approved = 'Si';
         $('#idModalIdea').trigger('click');
       } else {
-        this.approved = 'No';
+        this.approved = 'Si';
         this.createIdeaFail.show();
       }
     }
