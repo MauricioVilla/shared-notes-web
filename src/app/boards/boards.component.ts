@@ -82,7 +82,7 @@ export class BoardsComponent implements OnInit {
    Get boards from the user
    */
   getBoards() {
-    this.services.getBoards(this.username)
+    this.services.getBoardsByUser(this.username)
       .subscribe(
         data => {
           this.boards = data;
@@ -92,8 +92,23 @@ export class BoardsComponent implements OnInit {
       );
   }
 
-  /*
-  Creation of boards
+  /**
+   * Get board filtering by values of the searcher
+   * @param param
+   */
+  searchBoard(param: string) {
+    this.services.getBoardsSearcher(param)
+      .subscribe(
+        data => {
+          this.boards = data;
+        },
+        error => {
+        }
+      );
+  }
+
+  /**
+   * Function for creation of boards
    */
   newBoard() {
     const boardModel: BoardModel = {
@@ -113,8 +128,12 @@ export class BoardsComponent implements OnInit {
       );
   }
 
+  /**
+   * Function that consumes a service of elimination of boards
+   * @param id
+   */
   deleteBoard(id) {
-    this.services.deleteIdea(id)
+    this.services.deleteBoard(id)
       .subscribe(
         data => {
           this.getBoards();
@@ -125,6 +144,10 @@ export class BoardsComponent implements OnInit {
       );
   }
 
+  /**
+   * Function for the creation of new ideas on a board
+   * @param boardId
+   */
   newIdea(boardId) {
     const ideaModel: IdeaModel = {
       'board': boardId,
@@ -144,6 +167,12 @@ export class BoardsComponent implements OnInit {
       );
   }
 
+  /**
+   * Function for validate if an user can add ideas on a board
+   * @param boardId
+   * @param boardType
+   * @param createdBy
+   */
   checkNewIdea(boardId, boardType, createdBy) {
     if (boardType === 'Public') {
       if (this.username === createdBy) {
@@ -165,21 +194,47 @@ export class BoardsComponent implements OnInit {
     }
   }
 
+  /**
+   * Function for show modal with all the information
+   * of an idea
+   * @param idea
+   */
   showIdea(idea) {
     $('#linkShowIdea').trigger('click');
     $('#showIdea').find('.text').text(idea);
   }
 
-  editIdeaFormModal(board) {
-    if (board.created_by.username === this.username) {
-    } else {
-    }
-  }
-
+  /**
+   * Function that consumes a service of elimination of ideas
+   * of the an board
+   * @param idIdea
+   */
   deleteIdea(idIdea) {
+    this.services.deleteIdea(idIdea)
+      .subscribe(
+        data => {
+          this.getBoards();
+        },
+        error => {
+          console.log(`error: ${error.message}`);
+        }
+      );
   }
 
-  approveIdea(idea, board) {
+  /**
+   * Function that consume a service of approve of ideas
+   * @param idIdea
+   */
+  approveIdea(idIdea) {
+    this.services.approveIdea(idIdea)
+      .subscribe(
+        data => {
+          this.getBoards();
+        },
+        error => {
+          console.log(`error: ${error.message}`);
+        }
+      );
   }
 
 }

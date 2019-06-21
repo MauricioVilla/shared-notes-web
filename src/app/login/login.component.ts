@@ -59,8 +59,7 @@ export class LoginComponent implements OnInit {
   }
 
   consultUserLogged(username: string) {
-    // Get current user
-    this.authService.getCurrentUser(username)
+    this.authService.getUser(username)
       .subscribe(
         data => {
           localStorage.setItem('username', data.username);

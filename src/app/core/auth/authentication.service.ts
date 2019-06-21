@@ -129,7 +129,7 @@ export class AuthenticationService implements AuthService {
   /**
    * Get the current user logged
    */
-  getCurrentUser(username: string): Observable<any> {
+  getUser(username: string): Observable<any> {
     return this.http.get(`${env.apiUrl}/users/get_user/${username}/`);
   }
 

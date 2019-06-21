@@ -9,7 +9,7 @@ import { ProtectedGuard, PublicGuard } from '@app/core';
 const routes: Routes = [
   { path: '', component: HomeComponent,  pathMatch: 'full', data: { title: 'Login' }, canActivate: [PublicGuard] },
   { path: 'login', component: LoginComponent,  pathMatch: 'full', data: { title: 'Iniciar Sesión' }, canActivate: [PublicGuard] },
-  { path: 'create_account', component: UsersComponent,  pathMatch: 'full', data: { title: 'Crear Cuenta' } },
+  { path: 'create_account', component: UsersComponent,  pathMatch: 'full', data: { title: 'Crear Cuenta' }, canActivate: [PublicGuard] },
   { path: 'boards', component: BoardsComponent,  pathMatch: 'full', data: { title: 'Tableros' }, canActivate: [ProtectedGuard]},
 ];
 
