@@ -179,14 +179,14 @@ export class BoardsComponent implements OnInit {
    * @param createdBy
    */
   checkNewIdea(boardId, boardType, createdBy) {
-    if (boardType === 'Public') {
+    if (boardType === 'Publico') {
       if (this.username === createdBy) {
         this.approved = 'Si';
       } else {
         this.approved = 'Si';
       }
       $('#idModalIdea').trigger('click');
-    } else if (boardType === 'Private') {
+    } else if (boardType === 'Privado') {
       console.log(this.username);
       console.log(createdBy);
       if (this.username === createdBy) {

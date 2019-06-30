@@ -16,7 +16,7 @@
       <div class="card border-primary mb-4" style="max-width: 18rem;">
         <div class="card-body text-dark">
           <h6 class="text-left">
-            <span class="badge badge-pill badge-primary" [ngClass]="{'badge-success': board.type == 'Public', 'badge-warning': board.type == 'Private'}">
+            <span class="badge badge-pill badge-primary" [ngClass]="{'badge-success': board.type == 'Publico', 'badge-warning': board.type == 'Privado'}">
               {{ board.type }}
             </span>
             &nbsp;
@@ -85,8 +85,8 @@
               <div class="form-group col-md-6">
                 <label for="inputType">Tipo</label>
                 <select formControlName="type" class="form-control" id="inputType">
-                  <option value="Public">Publico</option>
-                  <option value="Private">Privado</option>
+                  <option value="Publico">Publico</option>
+                  <option value="Privado">Privado</option>
                 </select>
               </div>
             </div>
