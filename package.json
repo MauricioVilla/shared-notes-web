@@ -51,7 +51,7 @@
     "angular2-text-mask": "^9.0.0",
     "angular2-tooltip": "^3.1.0",
     "core-js": "^2.5.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jwt-decode": "^2.2.0",
     "libphonenumber-js": "^1.2.6",
     "material-icons": "^0.2.3",
